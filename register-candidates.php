@@ -120,14 +120,14 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               <div class="form-group">
                 <label>Education details
                 </label>
-                <input class="form-control input-lg" type="date" id="passingyear" name="passingyear" placeholder="Finishing Year">
+                <!-- <input class="form-control input-lg" type="date" id="passingyear" name="passingyear" placeholder="Finishing Year"> -->
               </div>       
               <div class="form-group">
                 <input class="form-control input-lg" type="text" id="qualification" name="qualification" placeholder="Highest Qualification">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input class="form-control input-lg" type="text" id="stream" name="stream" placeholder="Stream">
-              </div>                    
+              </div>                     -->
               <div class="form-group checkbox">
                 <label><input type="checkbox"> I accept terms & conditions</label>
               </div>
@@ -165,26 +165,26 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               <div class="form-group">
                 <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Phone Number">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <textarea class="form-control input-lg" rows="4" id="address" name="address" placeholder="Address"></textarea>
-              </div>
+              </div> -->
               <div class="form-group">
                 <input class="form-control input-lg" type="text" id="city" name="city" placeholder="City">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input class="form-control input-lg" type="text" id="state" name="state" placeholder="State">
-              </div>
+              </div> -->
               <div class="form-group">
                 <textarea class="form-control input-lg" rows="4" id="skills" name="skills" placeholder="Enter Skills"></textarea>
               </div>              
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input class="form-control input-lg" type="text" id="designation" name="designation" placeholder="Designation">
-              </div>
+              </div> -->
 
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label style="color: red;">File Format PDF Only!</label>
                 <input type="file" name="resume" class="btn btn-flat btn-danger" required>
-              </div>
+              </div> -->
             </div>
           </form>
           
