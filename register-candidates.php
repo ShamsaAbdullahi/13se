@@ -137,11 +137,11 @@ require_once("db.php");
 
                             <div class="col-md-6 latest-job ">
                                 <div class="form-group">
-                                    <input class="form-control input-lg" type="password" name="password"
+                                    <input class="form-control input-lg" id="password" type="password" name="password"
                                         placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control input-lg" type="password" name="cpassword"
+                                    <input class="form-control input-lg" id="cpassword" type="password" name="cpassword"
                                         placeholder="Confirm Password" required>
                                 </div>
                                 <div id="passwordError" class="btn btn-flat btn-danger hide-me">
