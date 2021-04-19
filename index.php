@@ -57,30 +57,30 @@ require_once("db.php");
                     <li>
                         <a href="#about">About Us</a>
                     </li>
-                    <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
-                    <li>
-                        <a href="login.php">Login</a>
-                    </li>
-                    <li>
-                        <a href="sign-up.php">Sign Up</a>
-                    </li>
-                    <?php } else {
+                    <?php if (empty($_SESSION['id_emp']) && empty($_SESSION['id_user'])) { ?>
+                        <li>
+                            <a href="login.php">Login</a>
+                        </li>
+                        <li>
+                            <a href="sign-up.php">Sign Up</a>
+                        </li>
+                        <?php } else {
 
                         if (isset($_SESSION['id_user'])) {
                         ?>
-                    <li>
-                        <a href="user/index.php">Dashboard</a>
-                    </li>
-                    <?php
+                            <li>
+                                <a href="user/index.php">Dashboard</a>
+                            </li>
+                        <?php
                         } else if (isset($_SESSION['id_company'])) {
                         ?>
-                    <li>
-                        <a href="company/index.php">Dashboard</a>
-                    </li>
-                    <?php } ?>
-                    <li>
-                        <a href="logout.php">Logout</a>
-                    </li>
+                            <li>
+                                <a href="employers/index.php">Dashboard</a>
+                            </li>
+                        <?php } ?>
+                        <li>
+                            <a href="logout.php">Logout</a>
+                        </li>
                     <?php } ?>
                 </ul>
             </div>
@@ -115,20 +115,18 @@ require_once("db.php");
                                 if ($result1->num_rows > 0) {
                                     while ($row1 = $result1->fetch_assoc()) {
                         ?>
-                        <div class="attachment-block clearfix">
-                            <img class="attachment-img" src="img/photo1.png" alt="Attachment Image">
-                            <div class="attachment-pushed">
-                                <h4 class="attachment-heading"><a
-                                        href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
-                                    <span
-                                        class="attachment-heading pull-right">$<?php echo $row['maximumsalary']; ?>/Month</span>
-                                </h4>
-                                <div class="attachment-text">
-                                    <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
-                                            | </strong></div>
-                                </div>
-                            </div>
-                        </div>
+                                        <div class="attachment-block clearfix">
+                                            <img class="attachment-img" src="img/photo1.png" alt="Attachment Image">
+                                            <div class="attachment-pushed">
+                                                <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
+                                                    <span class="attachment-heading pull-right">$<?php echo $row['maximumsalary']; ?>/Month</span>
+                                                </h4>
+                                                <div class="attachment-text">
+                                                    <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
+                                                            | </strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
                         <?php
                                     }
                                 }
