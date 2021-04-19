@@ -37,7 +37,7 @@ if (isset($_POST)) {
 
 
 			$_SESSION['registerCompleted'] = true;
-			header("Location: login-company.php");
+			header("Location: login-candidates.php");
 			exit();
 		} else {
 
@@ -46,7 +46,7 @@ if (isset($_POST)) {
 	} else {
 		//if email found in database then show email already exists error.
 		$_SESSION['registerError'] = true;
-		header("Location: register-company.php");
+		header("Location: register-candidates.php");
 		exit();
 	}
 
