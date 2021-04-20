@@ -3,18 +3,18 @@
 
 session_start();
 
-if(empty($_SESSION['id_user'])) {
-  header("Location: ../index.php");
-  exit();
+if (empty($_SESSION['id_user'])) {
+	header("Location: ../index.php");
+	exit();
 }
 
 require_once("../db.php");
 
-if(isset($_POST)) {
-	
-	$sql = "UPDATE users SET active='2' WHERE id_user='$_SESSION[id_user]'";
+if (isset($_POST)) {
 
-	if($conn->query($sql) == TRUE) {
+	$sql = "UPDATE employees SET active='2' WHERE id_user='$_SESSION[id_user]'";
+
+	if ($conn->query($sql) == TRUE) {
 		header("Location: ../logout.php");
 		exit();
 	} else {

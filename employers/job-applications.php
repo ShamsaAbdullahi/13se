@@ -80,7 +80,7 @@ require_once("../db.php");
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
                     <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href="edit-company.php"><i class="fa fa-tv"></i> My Company</a></li>
+                    <li><a href="edit-company.php"><i class="fa fa-tv"></i> My Details</a></li>
                     <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job
                         Post</a></li>
                     <li><a href="my-job-post.php"><i class="fa fa-file-o"></i> My Job Post</a></li>

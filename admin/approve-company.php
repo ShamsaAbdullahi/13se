@@ -13,7 +13,7 @@ require_once("../db.php");
 if (isset($_GET)) {
 
 	//Delete Company using id and redirect
-	$sql = "DELETE FROM employers WHERE id_emp='$_GET[id]'";
+	$sql = "UPDATE employers SET active='1' WHERE id_emp='$_GET[id]'";
 	if ($conn->query($sql)) {
 		header("Location: companies.php");
 		exit();

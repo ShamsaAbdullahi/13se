@@ -81,11 +81,11 @@ require_once("../db.php");
                                 <div class="box-body no-padding">
                                     <ul class="nav nav-pills nav-stacked">
                                         <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                                        <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i>
-                                                Active Jobs</a></li>
-                                        <li><a href="applications.php"><i class="fa fa-address-card-o"></i>
-                                                Applications</a></li>
-                                        <li><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>
+                                        <li><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a>
+                                        </li>
+                                        <li class="active"><a href="applications.php"><i
+                                                    class="fa fa-address-card-o"></i>Employees</a></li>
+                                        <li><a href="companies.php"><i class="fa fa-building"></i> Employers</a></li>
                                         <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i>
                                                 Logout</a></li>
                                     </ul>
@@ -101,7 +101,7 @@ require_once("../db.php");
                                         <table id="example2" class="table table-hover">
                                             <thead>
                                                 <th>Job Name</th>
-                                                <th>Company Name</th>
+                                                <th>Employers username</th>
                                                 <th>Date Created</th>
                                                 <th>View</th>
                                                 <th>Delete</th>
