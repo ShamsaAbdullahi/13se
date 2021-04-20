@@ -35,8 +35,7 @@ require_once("db.php");
   <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -80,56 +79,54 @@ require_once("db.php");
                 while ($row = $result->fetch_assoc()) {
             ?>
 
-            <section id="candidates" class="content-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-9 bg-white padding-2">
-                            <div class="pull-left">
-                                <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
-                            </div>
-                            <div class="pull-right">
-                                <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i
-                                        class="fa fa-arrow-circle-left"></i> Back</a>
-                            </div>
-                            <div class="clearfix"></div>
-                            <hr>
-                            <div>
-                                <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"></i>
-                                        <?php echo $row['location']; ?></span> <i class="fa fa-calendar text-green"></i>
-                                    <?php echo date("d-M-Y", strtotime($row['createdate'])); ?></p>
-                            </div>
-                            <div>
-                                <?php echo stripcslashes($row['description']); ?>
-                            </div>
-                            <?php
+                    <section id="candidates" class="content-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9 bg-white padding-2">
+                                    <div class="pull-left">
+                                        <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <hr>
+                                    <div>
+                                        <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"></i>
+                                                <?php echo $row['location']; ?></span> <i class="fa fa-calendar text-green"></i>
+                                            <?php echo date("d-M-Y", strtotime($row['createdate'])); ?></p>
+                                    </div>
+                                    <div>
+                                        <?php echo stripcslashes($row['description']); ?>
+                                    </div>
+                                    <?php
                                     if (isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
-                            <div>
-                                <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>"
-                                    class="btn btn-success btn-flat margin-top-50">Apply</a>
-                            </div>
-                            <?php } ?>
-
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="thumbnail">
-
-                                <div class="caption text-center">
-                                    <h3><?php echo $row['username']; ?></h3>
-                                    <p><a href="#" class="btn btn-primary btn-flat" role="button">More Info</a>
-                                        <hr>
-                                    <div class="row">
-                                        <div class="col-md-4"><a href=""><i class="fa fa-address-card-o"></i> Apply</a>
+                                        <div>
+                                            <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">Apply</a>
                                         </div>
-                                        <div class="col-md-4"><a href=""><i class="fa fa-warning"></i> Report</a></div>
-                                        <div class="col-md-4"><a href=""><i class="fa fa-envelope"></i> Email</a></div>
+                                    <?php } ?>
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+
+                                        <div class="caption text-center">
+                                            <h3><?php echo $row['username']; ?></h3>
+                                            <p><a href="#" class="btn btn-primary btn-flat" role="button">More Info</a>
+                                                <hr>
+                                            <div class="row">
+                                                <div class="col-md-4"><a href=""><i class="fa fa-address-card-o"></i> Apply</a>
+                                                </div>
+                                                <div class="col-md-4"><a href=""><i class="fa fa-warning"></i> Report</a></div>
+                                                <div class="col-md-4"><a href=""><i class="fa fa-envelope"></i> Email</a></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
 
             <?php
                 }
@@ -143,7 +140,7 @@ require_once("db.php");
 
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
-                <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All
+                <strong>Copyright &copy; 2021</strong> All
                 rights
                 reserved.
             </div>

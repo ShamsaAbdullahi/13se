@@ -172,7 +172,7 @@ require_once("../db.php");
 
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
-                <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All
+                <strong>Copyright &copy; 2021</strong> All
                 rights
                 reserved.
             </div>

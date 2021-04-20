@@ -121,7 +121,8 @@ require_once("db.php");
                                 <h4 class="attachment-heading"><a
                                         href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
                                     <span
-                                        class="attachment-heading pull-right">$<?php echo $row['maximumsalary']; ?>/Month</span>
+                                        class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>-/
+                                        Month</span>
                                 </h4>
                                 <div class="attachment-text">
                                     <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>

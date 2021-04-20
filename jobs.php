@@ -35,8 +35,7 @@ require_once("db.php");
   <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -58,29 +57,29 @@ require_once("db.php");
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_emp'])) { ?>
-                        <li>
-                            <a href="login.php">Login</a>
-                        </li>
-                        <li>
-                            <a href="sign-up.php">Sign Up</a>
-                        </li>
-                        <?php } else {
+                            <li>
+                                <a href="login.php">Login</a>
+                            </li>
+                            <li>
+                                <a href="sign-up.php">Sign Up</a>
+                            </li>
+                            <?php } else {
 
                             if (isset($_SESSION['id_user'])) {
                             ?>
-                        <li>
-                            <a href="user/index.php">Dashboard</a>
-                        </li>
-                        <?php
+                                <li>
+                                    <a href="user/index.php">Dashboard</a>
+                                </li>
+                            <?php
                             } else if (isset($_SESSION['id_emp'])) {
                             ?>
-                        <li>
-                            <a href="employers/index.php">Dashboard</a>
-                        </li>
-                        <?php } ?>
-                        <li>
-                            <a href="logout.php">Logout</a>
-                        </li>
+                                <li>
+                                    <a href="employers/index.php">Dashboard</a>
+                                </li>
+                            <?php } ?>
+                            <li>
+                                <a href="logout.php">Logout</a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -118,16 +117,11 @@ require_once("db.php");
                                     <ul class="nav nav-pills nav-stacked tree" data-widget="tree">
 
                                         <li class="treeview menu-open">
-                                            <a href="#"><i class="fa fa-plane text-red"></i>Job Title <span
-                                                    class="pull-right"><i
-                                                        class="fa fa-angle-down pull-right"></i></span></a>
+                                            <a href="#"><i class="fa fa-plane text-red"></i>Job Title <span class="pull-right"><i class="fa fa-angle-down pull-right"></i></span></a>
                                             <ul class="treeview-menu">
-                                                <li><a href="" class="experienceSearch" data-target='Lundry'><i
-                                                            class="fa fa-circle-o text-yellow"></i>Laundry</a></li>
-                                                <li><a href="" class="experienceSearch" data-target='Cleaner'><i
-                                                            class="fa fa-circle-o text-yellow"></i>Cleaner</a></li>
-                                                <li><a href="" class="experienceSearch" data-target='Watchman'><i
-                                                            class="fa fa-circle-o text-yellow"></i>Watchman</a></li>
+                                                <li><a href="" class="experienceSearch" data-target='Lundry'><i class="fa fa-circle-o text-yellow"></i>Laundry</a></li>
+                                                <li><a href="" class="experienceSearch" data-target='Cleaner'><i class="fa fa-circle-o text-yellow"></i>Cleaner</a></li>
+                                                <li><a href="" class="experienceSearch" data-target='Watchman'><i class="fa fa-circle-o text-yellow"></i>Watchman</a></li>
 
                                             </ul>
                                         </li>
@@ -175,7 +169,7 @@ require_once("db.php");
 
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
-                <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All
+                <strong>Copyright &copy; 2021</strong> All
                 rights
                 reserved.
             </div>
@@ -198,84 +192,84 @@ require_once("db.php");
     <script src="js/jquery.twbsPagination.min.js"></script>
 
     <script>
-    function Pagination() {
-        $("#pagination").twbsPagination({
-            totalPages: <?php echo $total_pages; ?>,
-            visible: 5,
-            onPageClick: function(e, page) {
-                e.preventDefault();
-                $("#target-content").html("loading....");
-                $("#target-content").load("jobpagination.php?page=" + page);
+        function Pagination() {
+            $("#pagination").twbsPagination({
+                totalPages: <?php echo $total_pages; ?>,
+                visible: 5,
+                onPageClick: function(e, page) {
+                    e.preventDefault();
+                    $("#target-content").html("loading....");
+                    $("#target-content").load("jobpagination.php?page=" + page);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        $(function() {
+            Pagination();
+        });
+    </script>
+
+    <script>
+        $("#searchBtn").on("click", function(e) {
+            e.preventDefault();
+            var searchResult = $("#searchBar").val();
+            var filter = "searchBar";
+            if (searchResult != "") {
+                $("#pagination").twbsPagination('destroy');
+                Search(searchResult, filter);
+            } else {
+                $("#pagination").twbsPagination('destroy');
+                Pagination();
             }
         });
-    }
     </script>
 
     <script>
-    $(function() {
-        Pagination();
-    });
-    </script>
-
-    <script>
-    $("#searchBtn").on("click", function(e) {
-        e.preventDefault();
-        var searchResult = $("#searchBar").val();
-        var filter = "searchBar";
-        if (searchResult != "") {
-            $("#pagination").twbsPagination('destroy');
-            Search(searchResult, filter);
-        } else {
-            $("#pagination").twbsPagination('destroy');
-            Pagination();
-        }
-    });
-    </script>
-
-    <script>
-    $(".experienceSearch").on("click", function(e) {
-        e.preventDefault();
-        var searchResult = $(this).data("target");
-        var filter = "experience";
-        if (searchResult != "") {
-            $("#pagination").twbsPagination('destroy');
-            Search(searchResult, filter);
-        } else {
-            $("#pagination").twbsPagination('destroy');
-            Pagination();
-        }
-    });
-    </script>
-
-    <script>
-    $(".citySearch").on("click", function(e) {
-        e.preventDefault();
-        var searchResult = $(this).data("target");
-        var filter = "location";
-        if (searchResult != "") {
-            $("#pagination").twbsPagination('destroy');
-            Search(searchResult, filter);
-        } else {
-            $("#pagination").twbsPagination('destroy');
-            Pagination();
-        }
-    });
-    </script>
-
-    <script>
-    function Search(val, filter) {
-        $("#pagination").twbsPagination({
-            totalPages: <?php echo $total_pages; ?>,
-            visible: 5,
-            onPageClick: function(e, page) {
-                e.preventDefault();
-                val = encodeURIComponent(val);
-                $("#target-content").html("loading....");
-                $("#target-content").load("search.php?page=" + page + "&search=" + val + "&filter=" +
-                    filter);
+        $(".experienceSearch").on("click", function(e) {
+            e.preventDefault();
+            var searchResult = $(this).data("target");
+            var filter = "experience";
+            if (searchResult != "") {
+                $("#pagination").twbsPagination('destroy');
+                Search(searchResult, filter);
+            } else {
+                $("#pagination").twbsPagination('destroy');
+                Pagination();
             }
         });
-    }
+    </script>
+
+    <script>
+        $(".citySearch").on("click", function(e) {
+            e.preventDefault();
+            var searchResult = $(this).data("target");
+            var filter = "location";
+            if (searchResult != "") {
+                $("#pagination").twbsPagination('destroy');
+                Search(searchResult, filter);
+            } else {
+                $("#pagination").twbsPagination('destroy');
+                Pagination();
+            }
+        });
+    </script>
+
+    <script>
+        function Search(val, filter) {
+            $("#pagination").twbsPagination({
+                totalPages: <?php echo $total_pages; ?>,
+                visible: 5,
+                onPageClick: function(e, page) {
+                    e.preventDefault();
+                    val = encodeURIComponent(val);
+                    $("#target-content").html("loading....");
+                    $("#target-content").load("search.php?page=" + page + "&search=" + val + "&filter=" +
+                        filter);
+                }
+            });
+        }
     </script>
 
 

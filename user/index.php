@@ -39,8 +39,7 @@ require_once("../db.php");
   <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -105,14 +104,13 @@ require_once("../db.php");
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                             ?>
-                            <div class="attachment-block clearfix padding-2">
-                                <h4 class="attachment-heading"><a
-                                        href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
-                                </h4>
-                                <div class="attachment-text padding-2">
-                                    <div class="pull-left"><i class="fa fa-calendar"></i>
-                                        <?php echo $row['createdate']; ?></div>
-                                    <?php
+                                    <div class="attachment-block clearfix padding-2">
+                                        <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
+                                        </h4>
+                                        <div class="attachment-text padding-2">
+                                            <div class="pull-left"><i class="fa fa-calendar"></i>
+                                                <?php echo $row['createdate']; ?></div>
+                                            <?php
 
                                             if ($row['status'] == 0) {
                                                 echo '<div class="pull-right"><strong class="text-orange">Pending</strong></div>';
@@ -123,8 +121,8 @@ require_once("../db.php");
                                             }
                                             ?>
 
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
 
                             <?php
                                 }
@@ -143,7 +141,7 @@ require_once("../db.php");
 
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
-                <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All
+                <strong>Copyright &copy; 2021</strong> All
                 rights
                 reserved.
             </div>
