@@ -98,7 +98,8 @@ require_once("db.php");
                 <div class="container">
                     <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
                         <h1 class="text-center margin-bottom-20">CREATE AN EMPLOYER PROFILE</h1>
-                        <form method="post" id="registerCompanies" action="addemp.php" enctype="multipart/form-data">
+                        <form method="post" id="registerCompanies" action="addemployer.php"
+                            enctype="multipart/form-data">
                             <div class="col-md-6 latest-job ">
                                 <div class="form-group">
                                     <input class="form-control input-lg" type="text" name="username"

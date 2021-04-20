@@ -45,7 +45,7 @@ if (isset($_POST)) {
 
 
             $_SESSION['registerCompleted'] = true;
-            header("Location: login-company.php");
+            header("Location: login-employers.php");
             exit();
         } else {
 

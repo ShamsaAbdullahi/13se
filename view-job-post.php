@@ -1,12 +1,11 @@
 <?php
 
+//To Handle Session Variables on This Page
 session_start();
 
-if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
-  header("Location: index.php");
-  exit();
-}
 
+//Including Database Connection From db.php file to avoid rewriting in all files
+require_once("db.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,11 +35,8 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <![endif]-->
 
     <!-- Google Font -->
-    <!-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Nunito:wght@300&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -62,68 +58,83 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="jobs.php">Jobs</a>
-                        </li>
-                        <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
-                        <li>
                             <a href="login.php">Login</a>
                         </li>
                         <li>
                             <a href="sign-up.php">Sign Up</a>
                         </li>
-                        <?php } else {
-
-              if (isset($_SESSION['id_user'])) {
-              ?>
-                        <li>
-                            <a href="user/index.php">Dashboard</a>
-                        </li>
-                        <?php
-              } else if (isset($_SESSION['id_company'])) {
-              ?>
-                        <li>
-                            <a href="company/index.php">Dashboard</a>
-                        </li>
-                        <?php } ?>
-                        <li>
-                            <a href="logout.php">Logout</a>
-                        </li>
-                        <?php } ?>
                     </ul>
                 </div>
             </nav>
         </header>
 
-        <!-- Content Wrapper. Contains page content -->
+
+
         <div class="content-wrapper" style="margin-left: 0px;">
 
-            <section class="content-header">
+            <?php
+
+            $sql = "SELECT * FROM job_post INNER JOIN employers ON job_post.id_emp=employers.id_emp WHERE id_jobpost='$_GET[id]'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+            ?>
+
+            <section id="candidates" class="content-header">
                 <div class="container">
-                    <div class="row latest-job margin-top-50 margin-bottom-20">
-                        <h1 class="text-center margin-bottom-20">Sign Up</h1>
-                        <div class="col-md-6 latest-job ">
-                            <div class="small-box bg-yellow padding-5">
-                                <div class="inner">
-                                    <h3 class="text-center">User Registration</h3>
-                                </div>
-                                <a href="register-candidates.php" class="small-box-footer">
-                                    Register <i class="fa fa-arrow-circle-right"></i>
-                                </a>
+                    <div class="row">
+                        <div class="col-md-9 bg-white padding-2">
+                            <div class="pull-left">
+                                <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
                             </div>
+                            <div class="pull-right">
+                                <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i
+                                        class="fa fa-arrow-circle-left"></i> Back</a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr>
+                            <div>
+                                <p><span class="margin-right-10"><i class="fa fa-location-arrow text-green"></i>
+                                        <?php echo $row['location']; ?></span> <i class="fa fa-calendar text-green"></i>
+                                    <?php echo date("d-M-Y", strtotime($row['createdate'])); ?></p>
+                            </div>
+                            <div>
+                                <?php echo stripcslashes($row['description']); ?>
+                            </div>
+                            <?php
+                                    if (isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
+                            <div>
+                                <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>"
+                                    class="btn btn-success btn-flat margin-top-50">Apply</a>
+                            </div>
+                            <?php } ?>
+
+
                         </div>
-                        <div class="col-md-6 latest-job ">
-                            <div class="small-box bg-red padding-5">
-                                <div class="inner">
-                                    <h3 class="text-center">Company Registration</h3>
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+
+                                <div class="caption text-center">
+                                    <h3><?php echo $row['username']; ?></h3>
+                                    <p><a href="#" class="btn btn-primary btn-flat" role="button">More Info</a>
+                                        <hr>
+                                    <div class="row">
+                                        <div class="col-md-4"><a href=""><i class="fa fa-address-card-o"></i> Apply</a>
+                                        </div>
+                                        <div class="col-md-4"><a href=""><i class="fa fa-warning"></i> Report</a></div>
+                                        <div class="col-md-4"><a href=""><i class="fa fa-envelope"></i> Email</a></div>
+                                    </div>
                                 </div>
-                                <a href="register-employers.php" class="small-box-footer">
-                                    Register <i class="fa fa-arrow-circle-right"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <?php
+                }
+            }
+            ?>
 
 
 
@@ -132,7 +143,8 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
-                <strong>Copyright &copy; 2020</strong> All rights
+                <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All
+                rights
                 reserved.
             </div>
         </footer>
@@ -151,6 +163,9 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
+
+
+
 </body>
 
 </html>
