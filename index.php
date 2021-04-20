@@ -49,10 +49,10 @@ require_once("db.php");
                         <a href="jobs.php">Jobs</a>
                     </li>
                     <li>
-                        <a href="#candidates">Candidates</a>
+                        <a href="#candidates">Employees</a>
                     </li>
                     <li>
-                        <a href="#company">Company</a>
+                        <a href="#company">Employers</a>
                     </li>
                     <li>
                         <a href="#about">About Us</a>
@@ -93,7 +93,7 @@ require_once("db.php");
                 <div class="row">
                     <div class="col-md-12 text-center index-head">
                         <h1>All <strong>JOBS</strong> In One Place</h1>
-                        <p>One search, global reach</p>
+                        <p>Blue Collar Services</p>
                         <p><a class="btn btn-success btn-lg" href="jobs.php" role="button">Search Jobs</a></p>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ require_once("db.php");
                                         href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
                                     <span
                                         class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>-/
-                                        Month</span>
+                                        work</span>
                                 </h4>
                                 <div class="attachment-text">
                                     <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
@@ -146,7 +146,7 @@ require_once("db.php");
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center latest-job margin-bottom-20">
-                        <h1>Candidates</h1>
+                        <h1>Employees</h1>
                         <p>Finding a job just got easier. Create a profile and apply with single mouse click.</p>
                     </div>
                 </div>
@@ -183,33 +183,33 @@ require_once("db.php");
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center latest-job margin-bottom-20">
-                        <h1>Companies</h1>
-                        <p>Hiring? Register your company for free, browse our talented pool, post and track job
+                        <h1>Employerss</h1>
+                        <p>Hiring? Register work with us, browse our talented pool, post and track job
                             applications</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-4 col-md-4">
                         <div class="thumbnail company-img">
-                            <img src="img/postjob.png" alt="Browse Jobs">
+                            <img src="img/cleanericon.png" alt="Browse Jobs">
                             <div class="caption">
-                                <h3 class="text-center">Post A Job</h3>
+                                <h3 class="text-center">Browse to find a Cleaner</h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4">
                         <div class="thumbnail company-img">
-                            <img src="img/manage.jpg" alt="Apply & Get Interviewed">
+                            <img src="img/laundryicon.png" alt="Apply & Get Interviewed">
                             <div class="caption">
-                                <h3 class="text-center">Manage & Track</h3>
+                                <h3 class="text-center">Apply for Laundry Services</h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4">
                         <div class="thumbnail company-img">
-                            <img src="img/hire.png" alt="Start A Career">
+                            <img src="img/watchmansvg.jpg" alt="Start A Career">
                             <div class="caption">
-                                <h3 class="text-center">Hire</h3>
+                                <h3 class="text-center">Hire Watchman</h3>
                             </div>
                         </div>
                     </div>
@@ -232,14 +232,14 @@ require_once("db.php");
                     </div>
                     <div class="col-md-6 about-text margin-bottom-20">
                         <p>Blue Collar Services
-                        <p>The online job portal application allows job seekers and embolyers to connect.The
+                        <p>The online job portal application allows job seekers and empolyers to connect.The
                             application provides the ability for job seekers to create their accounts, upload their
                             profile and resume, search for jobs, apply for jobs, view different job openings. The
                             application provides the ability for employeers to create their accounts, search
                             candidates, create job postings, and view candidates applications.
                         </p>
                         <p>
-                            This website is used to ebable the people who are in the society to connect to the
+                            This website is used to enable the people who are in the society to connect to the
                             people theywork in the community so as to allow them to grow the coomunity at large. Our
                             website aims at helping the community at large.
 

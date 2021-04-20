@@ -28,19 +28,17 @@ if (isset($_GET['filter']) && $_GET['filter'] == 'city') {
         while ($row = $result1->fetch_assoc()) {
 ?>
 
-<div class="attachment-block clearfix">
+          <div class="attachment-block clearfix">
 
-    <div class="attachment-pushed">
-        <h4 class="attachment-heading"><a
-                href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span
-                class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>/Month</span></h4>
-        <div class="attachment-text">
-            <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?></strong></div>
-        </div>
-    </div>
-</div>
+            <div class="attachment-pushed">
+              <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>/work</span></h4>
+              <div class="attachment-text">
+                <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?></strong></div>
+              </div>
+            </div>
+          </div>
 
-<?php
+        <?php
         }
       }
     }
@@ -65,19 +63,17 @@ if (isset($_GET['filter']) && $_GET['filter'] == 'city') {
         while ($row1 = $result1->fetch_assoc()) {
         ?>
 
-<div class="attachment-block clearfix">
+          <div class="attachment-block clearfix">
 
-    <div class="attachment-pushed">
-        <h4 class="attachment-heading"><a
-                href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span
-                class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>/Month</span></h4>
-        <div class="attachment-text">
-            <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
+            <div class="attachment-pushed">
+              <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>/work</span></h4>
+              <div class="attachment-text">
+                <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
 
-    <?php
+  <?php
         }
       }
     }
