@@ -116,22 +116,7 @@ require_once("db.php");
                                 </div>
                                 <div class="box-body no-padding">
                                     <ul class="nav nav-pills nav-stacked tree" data-widget="tree">
-                                        <li class="treeview menu-open">
-                                            <a href="#"><i class="fa fa-plane text-red"></i> Location <span
-                                                    class="pull-right"><i
-                                                        class="fa fa-angle-down pull-right"></i></span></a>
-                                            <ul class="treeview-menu">
-                                                <li><a href="" class="citySearch" data-target="Kakamega"><i
-                                                            class="fa fa-circle-o text-yellow"></i>Kakamega</a></li>
-                                                <li><a href="" class="citySearch" data-target="Nairobi"><i
-                                                            class="fa fa-circle-o text-yellow"></i>Nairobi</a></li>
-                                                <li><a href="" class="citySearch" data-target="Kisumu"><i
-                                                            class="fa fa-circle-o text-yellow"></i>Kisumu</a></li>
-                                                <li><a href="" class="citySearch" data-target="Mombasa"><i
-                                                            class="fa fa-circle-o text-yellow"></i>Mombasa</a></li>
 
-                                            </ul>
-                                        </li>
                                         <li class="treeview menu-open">
                                             <a href="#"><i class="fa fa-plane text-red"></i>Job Title <span
                                                     class="pull-right"><i

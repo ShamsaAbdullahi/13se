@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
                 href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span
                 class="attachment-heading pull-right">$<?php echo $row['maximumsalary']; ?>/Month</span></h4>
         <div class="attachment-text">
-            <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?> | Location</strong></div>
+            <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?></strong></div>
         </div>
     </div>
 </div>
