@@ -44,7 +44,7 @@ require_once("db.php");
         <nav class="navbar navbar-static-top">
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
+                <ul style="color:cornflowerblue;" class="nav navbar-nav">
                     <li>
                         <a href="jobs.php">Jobs</a>
                     </li>
@@ -116,7 +116,7 @@ require_once("db.php");
                                     while ($row1 = $result1->fetch_assoc()) {
                         ?>
                         <div class="attachment-block clearfix">
-                            <img class="attachment-img" src="img/photo1.png" alt="Attachment Image">
+                            <img class="attachment-img" src="img/photo3.png" alt="Attachment Image">
                             <div class="attachment-pushed">
                                 <h4 class="attachment-heading"><a
                                         href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
@@ -228,7 +228,7 @@ require_once("db.php");
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="img/browse.jpg" class="img-responsive">
+                        <img src="img/logo.jpg" class="img-responsive">
                     </div>
                     <div class="col-md-6 about-text margin-bottom-20">
                         <p>Blue Collar Services
