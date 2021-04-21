@@ -10,21 +10,10 @@ require_once("db.php");
 if (isset($_POST)) {
 
 	//Escape Special Characters In String First
-<<<<<<< HEAD
-	$firstname = mysqli_real_escape_string($conn, $_POST['fname']);
-	$lastname = mysqli_real_escape_string($conn, $_POST['lname']);
-	$city = mysqli_real_escape_string($conn, $_POST['city']);
-	$contactno = mysqli_real_escape_string($conn, $_POST['contactno']);
-	$qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
-	$dob = mysqli_real_escape_string($conn, $_POST['dob']);
-	$age = mysqli_real_escape_string($conn, $_POST['age']);
-	$aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
-	$skills = mysqli_real_escape_string($conn, $_POST['skills']);
-=======
+
 
 	$firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
 	$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
->>>>>>> d6791d4e223c952a2f7d7ebb57e02eb2c17c19b1
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$phone = mysqli_real_escape_string($conn, $_POST['phone']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
