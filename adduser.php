@@ -12,16 +12,11 @@ if(isset($_POST)) {
 	//Escape Special Characters In String First
 	$firstname = mysqli_real_escape_string($conn, $_POST['fname']);
 	$lastname = mysqli_real_escape_string($conn, $_POST['lname']);
-	// $address = mysqli_real_escape_string($conn, $_POST['address']);
 	$city = mysqli_real_escape_string($conn, $_POST['city']);
-	// $state = mysqli_real_escape_string($conn, $_POST['state']);
 	$contactno = mysqli_real_escape_string($conn, $_POST['contactno']);
 	$qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
-	// $stream = mysqli_real_escape_string($conn, $_POST['stream']);
-	// $passingyear = mysqli_real_escape_string($conn, $_POST['passingyear']);
 	$dob = mysqli_real_escape_string($conn, $_POST['dob']);
 	$age = mysqli_real_escape_string($conn, $_POST['age']);
-	// $designation = mysqli_real_escape_string($conn, $_POST['designation']);
 	$aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
 	$skills = mysqli_real_escape_string($conn, $_POST['skills']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
