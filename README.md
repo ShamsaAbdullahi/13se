@@ -1,5 +1,6 @@
 # 13se
 
-blue collar services
+This app is about blue collar services
 users folder contains all the details in the employees
-Emloyers folder contains details about the employees
+Employers folder contains details about the employees
+
