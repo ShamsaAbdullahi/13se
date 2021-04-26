@@ -106,7 +106,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                                 <div class="inner">
                                     <h3 class="text-center">Employee Registration</h3>
                                 </div>
-                                <a href="register-candidates.php" class="small-box-footer">
+                                <a href="register-user.php" class="small-box-footer">
                                     Register <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -116,7 +116,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                                 <div class="inner">
                                     <h3 class="text-center">Employer Registration</h3>
                                 </div>
-                                <a href="register-company.php" class="small-box-footer">
+                                <a href="register-employer.php" class="small-box-footer">
                                     Register <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
