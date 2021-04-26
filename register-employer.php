@@ -179,6 +179,14 @@ require_once("db.php");
         </div>
         <!-- /.content-wrapper -->
 
+<<<<<<< HEAD
+  <footer class="main-footer" style="margin-left: 0px;">
+    <div class="text-center">
+      <strong>Copyright &copy; 2021</strong> All rights
+    reserved.
+    </div>
+  </footer>
+=======
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
                 <strong>Copyright &copy; 2021.</strong> All
@@ -186,6 +194,7 @@ require_once("db.php");
                 reserved.
             </div>
         </footer>
+>>>>>>> d6791d4e223c952a2f7d7ebb57e02eb2c17c19b1
 
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
