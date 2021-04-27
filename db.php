@@ -1,6 +1,11 @@
 <?php
 
 //Your Mysql Config
+// $servername = "sql300.epizy.com";
+// $username = "epiz_28433789";
+// $password = "riJNOT00NWY5CS";
+// $dbname = "epiz_28433789_bluejobs";
+
 $servername = "localhost";
 $username = "root";
 $password = "";

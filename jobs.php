@@ -16,8 +16,9 @@ require_once("db.php");
     <title>Job Portal</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -35,69 +36,69 @@ require_once("db.php");
   <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
-    <div class="wrapper">
+<body style="min-height: 100vh;">
+   
+    <header>
+    <div class="wrapper" style="background:white;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Blue Jobs</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-nowrap">
+                    <li class="nav-item">
+                    <a class="nav-link" href="jobs.php">Jobs</a>
+                    </li>
+                    <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="sign-up.php">Sign Up</a>
+                    </li>
+                    <?php } else {
 
-        <header class="main-header">
-
-            <!-- Logo -->
-            <a href="index.php" class="logo logo-bg">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>J</b>P</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Job</b> Portal</span>
-            </a>
-
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_emp'])) { ?>
-                            <li>
-                                <a href="login.php">Login</a>
-                            </li>
-                            <li>
-                                <a href="sign-up.php">Sign Up</a>
-                            </li>
-                            <?php } else {
-
-                            if (isset($_SESSION['id_user'])) {
+                    if (isset($_SESSION['id_user'])) {
+                    ?>
+                     <li class="nav-item">
+                    <a class="nav-link" href="user/index.php">Dashboard</a>
+                    </li>
+                    <?php
+                            } else if (isset($_SESSION['id_company'])) {
                             ?>
-                                <li>
-                                    <a href="user/index.php">Dashboard</a>
-                                </li>
-                            <?php
-                            } else if (isset($_SESSION['id_emp'])) {
-                            ?>
-                                <li>
-                                    <a href="employers/index.php">Dashboard</a>
-                                </li>
-                            <?php } ?>
-                            <li>
-                                <a href="logout.php">Logout</a>
-                            </li>
-                        <?php } ?>
-                    </ul>
+                    <li class="nav-item">
+                    <a class="nav-link" href="company/index.php">Dashboard</a>
+                    </li>
+                    <?php } ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.php">logout</a>
+                    </li>
+                    <?php } ?>
+
+                </ul>
                 </div>
+            </div>
             </nav>
         </header>
+         
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="margin-left: 0px;">
+        <div class="content-wrapper" style="margin-left: 0px;padding-top: 120px;padding-bottom: 120px; background:white;">
 
             <section class="content-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 latest-job margin-top-50 margin-bottom-20">
-                            <h1 class="text-center">Latest Jobs</h1>
+                        <div class="col-md-12 latest-job margin-top-50 margin-bottom-20 text-center">
+                        <h2 style="color: #28395a;font-size: 50px; font-weight: 700; line-height: 1.2;margin-bottom:30px;">Jobs Available</h2>
                             <div class="input-group input-group-lg">
                                 <input type="text" id="searchBar" class="form-control" placeholder="Search job">
                                 <span class="input-group-btn">
-                                    <button id="searchBtn" type="button" class="btn btn-info btn-flat">Go!</button>
+                                    <button id="searchBtn" type="button" class="btn btn-primary btn-lg">Go!</button>
                                 </span>
                             </div>
                         </div>
@@ -105,7 +106,7 @@ require_once("db.php");
                 </div>
             </section>
 
-            <section id="candidates" class="content-header">
+            <section id="candidates" class="content-header ">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
@@ -150,7 +151,7 @@ require_once("db.php");
 
                             <div id="target-content">
 
-                            </div>
+                            </div><br><br><br>
                             <div class="text-center">
                                 <ul class="pagination text-center" id="pagination"></ul>
                             </div>
@@ -186,7 +187,8 @@ require_once("db.php");
     <!-- jQuery 3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>

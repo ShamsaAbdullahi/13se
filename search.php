@@ -28,15 +28,20 @@ if (isset($_GET['filter']) && $_GET['filter'] == 'city') {
         while ($row = $result1->fetch_assoc()) {
 ?>
 
-          <div class="attachment-block clearfix">
+<div class="attachment-block clearfix" style="margin-bottom:30px;">
+            <img class="attachment-img" src="img/headhunting.png" alt="Attachment Image">
+             <div class="attachment-pushed">
+             <h4 class="attachment-heading"> &nbsp &nbsp<a style="text-decoration:none;font-size: 24px;"
+               href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?> "><?php echo $row['jobtitle']; ?></a>
+                                    
+                 </h4><br>
+                <div class="attachment-text">
+                <div> &nbsp &nbsp &nbsp<strong style="font-size: 15px; color: #808080;line-height: 1.8;"><?php echo $row1['username']; ?> &nbsp &nbsp &nbsp &nbsp <i class="fas fa-map-marker-alt"></i> &nbsp<?php echo $row1['location']; ?> &nbsp &nbsp &nbsp &nbsp <i class="fas fa-coins"></i> Ksh <?php echo $row['minimumsalary']; ?>-<?php echo $row['maximumsalary']; ?> 
+                </strong></div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="attachment-pushed">
-              <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>/work</span></h4>
-              <div class="attachment-text">
-                <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?></strong></div>
-              </div>
-            </div>
-          </div>
 
         <?php
         }
@@ -63,15 +68,20 @@ if (isset($_GET['filter']) && $_GET['filter'] == 'city') {
         while ($row1 = $result1->fetch_assoc()) {
         ?>
 
-          <div class="attachment-block clearfix">
+<div class="attachment-block clearfix" style="margin-bottom:30px;">
+            <img class="attachment-img" src="img/headhunting.png" alt="Attachment Image">
+             <div class="attachment-pushed">
+             <h4 class="attachment-heading"> &nbsp &nbsp<a style="text-decoration:none;font-size: 24px;"
+               href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?> "><?php echo $row['jobtitle']; ?></a>
+                                    
+                 </h4><br>
+                <div class="attachment-text">
+                <div> &nbsp &nbsp &nbsp<strong style="font-size: 15px; color: #808080;line-height: 1.8;"><?php echo $row1['username']; ?> &nbsp &nbsp &nbsp &nbsp <i class="fas fa-map-marker-alt"></i> &nbsp<?php echo $row1['location']; ?> &nbsp &nbsp &nbsp &nbsp <i class="fas fa-coins"></i> Ksh <?php echo $row['minimumsalary']; ?>-<?php echo $row['maximumsalary']; ?> 
+                </strong></div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="attachment-pushed">
-              <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>/work</span></h4>
-              <div class="attachment-text">
-                <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
-                </div>
-              </div>
-            </div>
 
   <?php
         }

@@ -18,7 +18,8 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -43,66 +44,63 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
         rel="stylesheet">
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
-    <div class="wrapper">
+<body>
+<div class="wrapper">
 
-        <header class="main-header">
+        <header>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Blue Jobs</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-nowrap">
+                    <li class="nav-item">
+                    <a class="nav-link" href="jobs.php">Jobs</a>
+                    </li>
+                    <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="sign-up.php">Sign Up</a>
+                    </li>
+                    <?php } else {
 
-            <!-- Logo -->
-            <a href="index.php" class="logo logo-bg">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>J</b>P</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Job</b> Portal</span>
-            </a>
-
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="jobs.php">Jobs</a>
-                        </li>
-                        <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
-                        <li>
-                            <a href="login.php">Login</a>
-                        </li>
-                        <li>
-                            <a href="sign-up.php">Sign Up</a>
-                        </li>
-                        <?php } else {
-
-                            if (isset($_SESSION['id_user'])) {
-                            ?>
-                        <li>
-                            <a href="user/index.php">Dashboard</a>
-                        </li>
-                        <?php
+                    if (isset($_SESSION['id_user'])) {
+                    ?>
+                     <li class="nav-item">
+                    <a class="nav-link" href="user/index.php">Dashboard</a>
+                    </li>
+                    <?php
                             } else if (isset($_SESSION['id_company'])) {
                             ?>
-                        <li>
-                            <a href="company/index.php">Dashboard</a>
-                        </li>
-                        <?php } ?>
-                        <li>
-                            <a href="logout.php">Logout</a>
-                        </li>
-                        <?php } ?>
-                    </ul>
+                    <li class="nav-item">
+                    <a class="nav-link" href="company/index.php">Dashboard</a>
+                    </li>
+                    <?php } ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="logout.php">logout</a>
+                    </li>
+                    <?php } ?>
+
+                </ul>
                 </div>
+            </div>
             </nav>
         </header>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="margin-left: 0px;">
+        <div class="content-wrapper" style="margin-left: 0px;padding-top: 50px;padding-bottom: 120px; background:white;">
 
             <section class="content-header">
                 <div class="container">
                     <div class="row latest-job margin-top-50 margin-bottom-20">
                         <h1 class="text-center margin-bottom-20">Sign Up</h1>
                         <div class="col-md-6 latest-job ">
-                            <div class="small-box bg-yellow padding-5">
+                            <div class="small-box bg-blue padding-5">
                                 <div class="inner">
                                     <h3 class="text-center">Employee Registration</h3>
                                 </div>
@@ -112,7 +110,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                             </div>
                         </div>
                         <div class="col-md-6 latest-job ">
-                            <div class="small-box bg-red padding-5">
+                            <div class="small-box bg-blue padding-5">
                                 <div class="inner">
                                     <h3 class="text-center">Employer Registration</h3>
                                 </div>
@@ -132,7 +130,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
-                <strong>Copyright &copy; 2020</strong> All rights
+                <strong>Copyright &copy; 2021</strong> All rights
                 reserved.
             </div>
         </footer>
@@ -148,7 +146,8 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <!-- jQuery 3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
 </body>

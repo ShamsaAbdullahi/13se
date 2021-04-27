@@ -18,7 +18,8 @@ require_once("db.php");
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -38,155 +39,195 @@ require_once("db.php");
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    background-color:white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300
+}
+
+.height {
+    height: 100vh
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+.form-group i {
+    position: absolute;
+    font-size: 18px;
+    top: 15px;
+    left: 10px
+}
+
+.form-control {
+    height: 50px;
+    background-color: whitesmoke;
+    text-indent: 24px;
+    font-size: 15px
+}
+
+.form-control:focus {
+    background-color: ;
+    box-shadow: none;
+    color: black;
+    border-color: #4f63e7;
+}
+
+.form-check-label {
+    margin-top: 2px;
+    font-size: 14px
+}
+select.form-control option{
+background-color: #577FBA;
+color:black;
+}
+
+
+  </style>
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
+<body>
     <div class="wrapper">
+    
 
-        <header class="main-header">
+<header>
+      
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#">Blue Jobs</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto flex-nowrap">
+                  <li class="nav-item">
+                  <a class="nav-link" href="jobs.php">Jobs</a>
+                  </li>
+                  <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
+                  <li class="nav-item">
+                  <a class="nav-link" href="login.php">Login</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="sign-up.php">Sign Up</a>
+                  </li>
+                  <?php } else {
 
-            <!-- Logo -->
-            <a href="index.php" class="logo logo-bg">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>J</b>P</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Job</b> Portal</span>
-            </a>
+                  if (isset($_SESSION['id_user'])) {
+                  ?>
+                   <li class="nav-item">
+                  <a class="nav-link" href="user/index.php">Dashboard</a>
+                  </li>
+                  <?php
+                          } else if (isset($_SESSION['id_company'])) {
+                          ?>
+                  <li class="nav-item">
+                  <a class="nav-link" href="company/index.php">Dashboard</a>
+                  </li>
+                  <?php } ?>
+                  <li class="nav-item">
+                  <a class="nav-link" href="logout.php">logout</a>
+                  </li>
+                  <?php } ?>
 
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav style="color:blue;" class="navbar navbar-static-top">
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="jobs.php">Jobs</a>
-                        </li>
-                        <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_emp'])) { ?>
-                        <li>
-                            <a href="login.php">Login</a>
-                        </li>
-                        <li>
-                            <a href="sign-up.php">Sign Up</a>
-                        </li>
-                        <?php } else {
-
-                            if (isset($_SESSION['id_user'])) {
-                            ?>
-                        <li>
-                            <a href="user/index.php">Dashboard</a>
-                        </li>
-                        <?php
-                            } else if (isset($_SESSION['id_company'])) {
-                            ?>
-                        <li>
-                            <a href="employers/index.php">Dashboard</a>
-                        </li>
-                        <?php } ?>
-                        <li>
-                            <a href="logout.php">Logout</a>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+              </ul>
+              </div>
+          </div>
+          </nav>
+      </header>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="margin-left: 0px;">
-
-            <section class="content-header">
-                <div class="container">
-                    <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
-                        <h1 class="text-center margin-bottom-20">CREATE AN EMPLOYER PROFILE</h1>
-                        <form method="post" id="registerCompanies" action="addemp.php" enctype="multipart/form-data">
-                            <div class="col-md-6 latest-job ">
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="text" name="username"
-                                        placeholder="user Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="text" name="firstname"
-                                        placeholder="First Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="text" name="lastname"
-                                        placeholder="Lastname">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="text" name="email" placeholder="Email"
-                                        required>
-                                </div>
-
-                                <div class="form-group checkbox">
-                                    <label><input type="checkbox" required> I accept terms & conditions</label>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-flat btn-success">Register</button>
-                                </div>
-                                <?php
-                                //If Company already registered with this email then show error message.
-                                if (isset($_SESSION['registerError'])) {
-                                ?>
-                                <div>
-                                    <p class="text-center" style="color: red;">Email Already Exists! Choose A Different
-                                        Email!</p>
-                                </div>
-                                <?php
-                                    unset($_SESSION['registerError']);
-                                }
-                                ?>
-                            </div>
-
-                            <div class="col-md-6 latest-job ">
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="password" name="password"
-                                        placeholder="Password" required>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="password" name="cpassword"
-                                        placeholder="Confirm Password" required>
-                                </div>
-                                <div id="passwordError" class="btn btn-flat btn-danger hide-me">
-                                    Password Mismatch!!
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control input-lg" type="text" name="phone"
-                                        placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off"
-                                        onkeypress="return validatePhone(event);" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Location">Location</label>
-                                    <select class="form-control" name="location" id="location">
-                                        <option> Kakamega
-                                        </option>
-                                        <option>Nairobi</option>
-                                        <option>Kisumu</option>
-                                        <option>Mombasa</option>
-                                    </select>
-                                </div>
-
-
-
-                            </div>
-                        </form>
-
-                    </div>
+        <div class="content-wrapper" style="margin-left: 0px; background-color: white;">
+       <section class="content-header">
+        <div class="container">
+          <div class="row latest-job margin-top-50 ">
+          <h2 style="line-height: 1.2; margin-bottom:20px; text-align:center; margin-top:10px;">Employer/Company Profile</h2>
+            
+            <form method="post"  id="registerCompanies" action="addemp.php" enctype="multipart/form-data"  class="form-inline justify-content-center">
+              <div class="col col-sm-6 offset-sm-3 text-center">
+              <div class="form-group">
+                  <input class="form-control input-lg" type="text" name="username" placeholder="Company Name" required>
                 </div>
-            </section>
+
+                <div class="form-group">
+                  <input class="form-control input-lg" type="text" name="firstname" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" type="text" name="lastname" placeholder="Lastname">
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" type="text" name="email" placeholder="Email" required>
+                </div>
+
+               
+
+                <?php
+                //If Company already registered with this email then show error message.
+                if (isset($_SESSION['registerError'])) {
+                ?>
+                  <div>
+                    <p class="text-center" style="color: red;">Email Already Exists! Choose A Different
+                      Email!</p>
+                  </div>
+                <?php
+                  unset($_SESSION['registerError']);
+                }
+                ?>
+              </div>
+
+
+              <div class="col-md-6 offset-sm-3 text-center ">
+                <div class="form-group">
+                  <input class="form-control input-lg" id="password" type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" id="cpassword" type="password" name="cpassword" placeholder="Confirm Password" required>
+                </div>
+                <div id="passwordError" class="btn btn-flat btn-danger hide-me">
+                  Password Mismatch!!
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" type="text" name="phone" placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="Location">Location</label> -->
+                  <select class="form-control" placeholder="location" name="location" id="location">
+                  <option value="" disabled selected hidden>Enter location</option>
+                    <option value="Kakamega"> Kakamega</option>
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Kisumu">Kisumu</option>
+                    <option value="Mombasa">Mombasa</option>
+                  </select>
+                </div>
+                
+                <div class="form-group checkbox">
+                  <label><input type="checkbox" required> I accept terms & conditions</label>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-secondary btn-lg">Register</button>
+                </div>
 
 
 
+              </div>
+            </form>
+
+          </div>
         </div>
+      </section><br><br>
+
+
+
+    </div>
         <!-- /.content-wrapper -->
 
-<<<<<<< HEAD
-  <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2021</strong> All rights
-    reserved.
-    </div>
-  </footer>
-=======
         <footer class="main-footer" style="margin-left: 0px;">
             <div class="text-center">
                 <strong>Copyright &copy; 2021.</strong> All
@@ -194,7 +235,6 @@ require_once("db.php");
                 reserved.
             </div>
         </footer>
->>>>>>> d6791d4e223c952a2f7d7ebb57e02eb2c17c19b1
 
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
@@ -207,7 +247,7 @@ require_once("db.php");
     <!-- jQuery 3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
 

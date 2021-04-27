@@ -20,10 +20,11 @@ require_once("../db.php");
     <title>Job Portal</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -39,25 +40,38 @@ require_once("../db.php");
   <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+</style>
+    
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
+<body>
     <div class="wrapper">
 
-        <header class="main-header">
+        
+        <header>
 
-            <!-- Logo -->
-            <a href="index.php" class="logo logo-bg">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>J</b>P</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Job</b> Portal</span>
-            </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" >
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">Blue Jobs</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav ms-auto flex-nowrap">
+        <li class="nav-item">
+          <a class="nav-link " href="../jobs.php">Jobs</a>
+        </li>
+
+        
+        </div>
+        </nav>
 
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Navbar Right Menu -->
+            <!-- <nav class="navbar navbar-static-top">
+                 Navbar Right Menu
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li>
@@ -65,11 +79,11 @@ require_once("../db.php");
                         </li>
                     </ul>
                 </div>
-            </nav>
+            </nav> -->
         </header>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="margin-left: 0px;">
+        <div class="content-wrapper" style="margin-left: 0px;padding-top: 120px;padding-bottom: 120px; background:white;">
 
             <section id="candidates" class="content-header">
                 <div class="container">
@@ -79,8 +93,27 @@ require_once("../db.php");
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                                 </div>
-                                <div class="box-body no-padding">
-                                    <ul class="nav nav-pills nav-stacked">
+                                <div>
+
+                                <nav class="nav flex-column">
+                                <a class="nav-link" href="edit-profile.php"><i class="fas fa-user"></i>&nbspEdit Profile</a>
+                                <a class="nav-link" href="index.php"><i class="far fa-address-card"></i>&nbspMy Applications</a>
+
+                                
+                                <a class="nav-link" href="../jobs.php"><i class="fas fa-list"></i>&nbspJobs</a>
+                                <a class="nav-link" href="mailbox.php"><i class="fas fa-envelope"></i>&nbspMailbox</a>
+                                <a class="nav-link" href="settings.php"><i class="fas fa-cogs"></i>&nbspSettings</a>
+                                <a class="nav-link" href="../logout.php"><i class="fas fa-sign-out-alt"></i>&nbsplogout</a>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                 </nav>
+                                    <!-- <ul class="nav nav-pills nav-stacked">
                                         <li><a href="edit-profile.php"><i class="fa fa-user"></i> Edit Profile</a></li>
                                         <li class="active"><a href="index.php"><i class="fa fa-address-card-o"></i> My
                                                 Applications</a></li>
@@ -89,7 +122,7 @@ require_once("../db.php");
                                         <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
                                         <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i>
                                                 Logout</a></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         </div>

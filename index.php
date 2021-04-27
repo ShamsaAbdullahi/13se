@@ -19,8 +19,9 @@ require_once("db.php");
     <title>Job Portal</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -36,62 +37,95 @@ require_once("db.php");
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  <!-- font awesome -->
+  <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="assets/css/flaticon.css">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+</style>
+
+
+</script>
 
 </head>
 
-<body>
+<body >
     <header>
-        <nav class="navbar navbar-static-top">
-            <!-- Navbar Right Menu -->
-            <div class="navbar-custom-menu">
-                <ul style="color:cornflowerblue;" class="nav navbar-nav">
+    <div class="wrapper">
+       
+     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" >
+      <div class="container-fluid">
+     <a class="navbar-brand" href="#">Blue Jobs</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link " href="jobs.php">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#candidates">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#company">Employer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About us</a>
+        </li>
+        </ul>
+       
+
+        <ul class="navbar-nav ms-auto flex-nowrap">
+        
+        <?php if (empty($_SESSION['id_emp']) && empty($_SESSION['id_user'])) { ?>
                     <li>
-                        <a href="jobs.php">Jobs</a>
+                        <a  class="nav-link" href="login.php">Login</a>
                     </li>
                     <li>
-                        <a href="#candidates">Employees</a>
-                    </li>
-                    <li>
-                        <a href="#company">Employers</a>
-                    </li>
-                    <li>
-                        <a href="#about">About Us</a>
-                    </li>
-                    <?php if (empty($_SESSION['id_emp']) && empty($_SESSION['id_user'])) { ?>
-                    <li>
-                        <a href="login.php">Login</a>
-                    </li>
-                    <li>
-                        <a href="sign-up.php">Sign Up</a>
+                        <a class="nav-link" href="sign-up.php">Sign Up</a>
                     </li>
                     <?php } else {
 
                         if (isset($_SESSION['id_user'])) {
                         ?>
                     <li>
-                        <a href="user/index.php">Dashboard</a>
+                        <a class="nav-link" href="user/index.php">Dashboard</a>
                     </li>
                     <?php
                         } else if (isset($_SESSION['id_company'])) {
                         ?>
                     <li>
-                        <a href="employers/index.php">Dashboard</a>
+                        <a class="nav-link" href="employers/index.php">Dashboard</a>
                     </li>
                     <?php } ?>
                     <li>
-                        <a href="logout.php">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                     <?php } ?>
-                </ul>
-            </div>
-        </nav>
+       
+      
+    </ul>
+       
+     
+    </div>
+  </div>
+</nav>
     </header>
+
+
+
     <div class="content-wrapper" style="margin-left: 0px;">
 
-        <section class="content-header bg-main">
-            <div class="container">
+        <section class="content-header " style="background:white;">
+            <!-- <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center index-head">
                         <h1>All <strong>JOBS</strong> In One Place</h1>
@@ -99,14 +133,65 @@ require_once("db.php");
                         <p><a class="btn btn-success btn-lg" href="jobs.php" role="button">Search Jobs</a></p>
                     </div>
                 </div>
+            </div> -->
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="https://images.pexels.com/photos/3894375/pexels-photo-3894375.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block" style="top: 50%; transform: translateY(-50%); color:black; ">
+                        <h4>All Jobs In One Place</h4>
+                        <p>Blue Collar Services</p>
+                        <p><a class="btn btn-dark btn-lg" href="jobs.php" role="button">Search Jobs</a></p>
+                 </div>
+                </div>
+                <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/4820682/pexels-photo-4820682.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block" style="top: 50%; transform: translateY(-50%); color:white;">
+                        <h4>All Jobs In One Place</h4>
+                        <p>Blue Collar Services</p>
+                        <p><a class="btn btn-dark btn-lg" href="jobs.php"  role="button">Search Jobs</a></p>
+                </div>
+                </div>
+                <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/4427957/pexels-photo-4427957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block" style="top: 50%; transform: translateY(-50%); color:white;">
+                        <h4>All Jobs In One Place</h4>
+                        <p>Blue Collar Services</p>
+                        <p><a class="btn btn-dark btn-lg" href="jobs.php" role="button">Search Jobs</a></p>
+                </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
             </div>
         </section>
-        <section class="content-header">
+
+
+      
+        <section class="content-header" style="background:white; padding-top: 50px;padding-bottom: 200px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 latest-job margin-bottom-20">
-                        <h1 class="text-center">Latest Jobs</h1>
+                    <div class="col-md-12 latest-job margin-bottom-30">
+                    <div class="section-tittle text-center"  style="margin-top:35px;">
+                            <span style="color: #fb246a;text-transform: uppercase;margin-bottom: 28px;display: block;">Recent Jobs</span>
+                            <h2 style="color: #28395a;font-size: 50px; font-weight: 700; line-height: 1.2;margin-bottom: 65px;">Featured Jobs</h2>
+                        </div>
+                        <div class="row justify-content-center" style="padding: 36px 30px;">
+                        <div class="col-xl-10">
                         <?php
+                        
 
                         $sql = "SELECT * FROM job_post Order By Rand() Limit 4";
                         $result = $conn->query($sql);
@@ -117,18 +202,17 @@ require_once("db.php");
                                 if ($result1->num_rows > 0) {
                                     while ($row1 = $result1->fetch_assoc()) {
                         ?>
-                        <div class="attachment-block clearfix">
-                            <img class="attachment-img" src="img/photo3.png" alt="Attachment Image">
+                        <div class="attachment-block clearfix" style="margin-bottom:30px;">
+                            <img class="attachment-img" src="img/headhunting.png" alt="Attachment Image">
                             <div class="attachment-pushed">
-                                <h4 class="attachment-heading"><a
-                                        href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
+                                <h4 class="attachment-heading"> &nbsp &nbsp<a style="text-decoration:none;font-size: 24px;"
+                                        href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?> "><?php echo $row['jobtitle']; ?></a>
                                     <span
-                                        class="attachment-heading pull-right">Ksh.<?php echo $row['maximumsalary']; ?>-/
-                                        work</span>
-                                </h4>
+                                        class="attachment-heading pull-right"><a class="btn btn-outline-primary" href="jobs.php" role="button">Available</a></button></span>
+                              </h4><br>
                                 <div class="attachment-text">
-                                    <div><strong><?php echo $row1['username']; ?> | <?php echo $row1['location']; ?>
-                                            | </strong></div>
+                                    <div> &nbsp &nbsp &nbsp<strong style="font-size: 15px; color: #808080;line-height: 1.8;"><?php echo $row1['username']; ?> &nbsp &nbsp &nbsp &nbsp <i class="fas fa-map-marker-alt"></i> &nbsp<?php echo $row1['location']; ?> &nbsp &nbsp &nbsp &nbsp <i class="fas fa-coins"></i> Ksh <?php echo $row['minimumsalary']; ?>-<?php echo $row['maximumsalary']; ?> 
+                                             </strong></div>
                                 </div>
                             </div>
                         </div>
@@ -144,88 +228,149 @@ require_once("db.php");
             </div>
         </section>
 
-        <section id="candidates" class="content-header">
+
+
+
+        <div id="candidates" class="content-header pt-150 pb-150" style="background:url(img/how-applybg.png); min-height:100%; background-size: cover; background-repeat: no-repeat;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 text-center latest-job margin-bottom-20">
-                        <h1>Employees</h1>
-                        <p>Finding a job just got easier. Create a profile and apply with single mouse click.</p>
+                <div class="col-lg-12">
+                        <div class="section-tittle white-text text-center">
+                            <span style="color: #fb246a; text-transform: uppercase; margin-bottom: 28px; display: block; line-height: 1.5; margin-top: 50px;">Application process</span>
+                            <h2 style="line-height: 1.2; margin-bottom: 95px;"> How it works</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4 col-md-4">
-                        <div class="thumbnail candidate-img">
-                            <img src="img/browse.jpg" alt="Browse Jobs">
-                            <div class="caption">
-                                <h3 class="text-center">Browse Jobs</h3>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-process text-center mb-30" style="background: #26317f; margin-bottom: 150px;padding: 44px 28px; ">
+                            <div>
+                                <span class="fi-rr-search-alt " style="font-size: 60px; color: #fff; margin-bottom: 20px;"></span>
+                            </div>
+                            <div class="process-cap">
+                               <h5 style="color:white;">1. Search a job</h5>
+                               <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-md-4">
-                        <div class="thumbnail candidate-img">
-                            <img src="img/interviewed.jpeg" alt="Apply & Get Interviewed">
-                            <div class="caption">
-                                <h3 class="text-center">Apply & Get Interviewed</h3>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-process text-center mb-30" style="background: #26317f; margin-bottom: 150px; padding: 44px 28px; ">
+                            <div class="process-ion">
+                                <span class="fi-rr-edit" style="font-size: 60px; color: #fff; margin-bottom: 20px;"></span>
+                            </div>
+                            <div class="process-cap">
+                               <h5 style="color:white;">2. Apply for job</h5>
+                               <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-md-4">
-                        <div class="thumbnail candidate-img">
-                            <img src="img/career.jpg" alt="Start A Career">
-                            <div class="caption">
-                                <h3 class="text-center">Start A Career</h3>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-process text-center mb-30" style="background: #26317f; margin-bottom: 150px; padding: 44px 28px; ">
+                            <div class="process-ion">
+                                <span class="fi-rr-briefcase" style="font-size: 60px; color: #fff; margin-bottom: 20px;"></span>
+                            </div>
+                            <div class="process-cap">
+                               <h5 style="color:white;">3. Get your job</h5>
+                               <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+                    </div>
 
-        <section id="company" class="content-header">
+
+
+
+            <div id="company" class="our-services section-pad-t30" style="background:white;">
             <div class="container">
+                <!-- Section Tittle -->
                 <div class="row">
-                    <div class="col-md-12 text-center latest-job margin-bottom-20">
-                        <h1>Employerss</h1>
-                        <p>Hiring? Register work with us, browse our talented pool, post and track job
-                            applications</p>
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center" style="margin-top:55px;">
+                            <span style="color: #fb246a;text-transform: uppercase;margin-bottom: 28px;display: block;">FEATURED</span>
+                            <h2 style="color: #28395a;font-size: 50px; font-weight: 700; line-height: 1.2;margin-bottom: 95px;">Browse Top Categories </h2>
+                        </div>
                     </div>
                 </div>
+                <div class="row d-flex justify-contnet-center">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-services text-center mb-30" style="border: 1px solid #dafcef;padding: 44px 0;">
+                            <div class="services-ion">
+                                <span class="fas fa-tshirt"  style="font-size: 60px;margin-bottom: 13px;color: #014b85;"></span>
+                            </div>
+                            <div class="services-cap">
+                               <h5><a href="jobs.php" style="text-decoration:none">Laundry Services</a></h5>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-services text-center mb-30" style="border: 1px solid #dafcef;padding: 44px 0;">
+                            <div class="services-ion">
+                                <span class="fas fa-user-secret"  style="font-size: 60px;margin-bottom: 13px;color: #014b85;"></span>
+                            </div>
+                            <div class="services-cap">
+                               <h5><a href="jobs.php" style="text-decoration:none">Security services</a></h5>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-services text-center mb-30" style="border: 1px solid #dafcef;padding: 44px 0;">
+                            <div class="services-ion">
+                                <span class="fas fa-water"  style="font-size: 60px;margin-bottom: 13px;color: #014b85;"></span>
+                            </div>
+                            <div class="services-cap">
+                               <h5><a href="jobs.php" style="text-decoration:none">Cleaning Services</a></h5>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="single-services text-center mb-30" style="border: 1px solid #dafcef;padding: 44px 0;">
+                            <div class="services-ion">
+                                <span class="fas fa-tractor" style="font-size: 60px;margin-bottom: 13px;color: #014b85;"></span>
+                            </div>
+                            <div class="services-cap">
+                               <h5><a href="jobs.php" style="text-decoration:none">Gardening Services</a></h5>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- More Btn -->
+                <!-- Section Button -->
                 <div class="row">
-                    <div class="col-sm-4 col-md-4">
-                        <div class="thumbnail company-img">
-                            <img src="img/cleanericon.png" alt="Browse Jobs">
-                            <div class="caption">
-                                <h3 class="text-center">Browse to find a Cleaner</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-4">
-                        <div class="thumbnail company-img">
-                            <img src="img/laundryicon.png" alt="Apply & Get Interviewed">
-                            <div class="caption">
-                                <h3 class="text-center">Apply for Laundry Services</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-4">
-                        <div class="thumbnail company-img">
-                            <img src="img/watchmansvg.jpg" alt="Start A Career">
-                            <div class="caption">
-                                <h3 class="text-center">Hire Watchman</h3>
-                            </div>
+                    <div class="col-lg-12">
+                        <div class="browse-btn2 text-center mt-50">
+                            <a href="jobs.php" class="border-btn2" style="border: 1px solid #8b92dd;color: #8b92dd; background: none; padding: 19px 69px; margin-top:40px; text-transform: uppercase; cursor: pointer;
+                                        display: inline-block;
+                                        font-size: 14px;
+                                        font-weight: 500;
+                                        letter-spacing: 1px;
+                                        text-decoration:none;
+                                        border-radius: 5px;
+                                        margin-bottom:90px;">Browse All Jobs</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+        <!-- Our Services End -->
 
 
 
-        <section id="about" class="content-header">
+
+       
+
+
+        <section id="about" class="content-header" style="background: #010b1d;color:white;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center latest-job margin-bottom-20">
-                        <h1>About US</h1>
+                        <h1 style="color: #ffffff;font-size: 20px; margin-bottom: 29px; font-weight: 400;text-transform: uppercase;">About US</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -254,7 +399,7 @@ require_once("db.php");
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer" style="margin-left: 0px;">
+    <footer class="main-footer" style="margin-left: 0px; background: #010b1d">
         <div class="text-center">
             <strong>Copyright &copy; 2021</strong> All rights
             reserved.
@@ -272,14 +417,16 @@ require_once("db.php");
     <!-- jQuery 3 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <!-- AdminLTE App -->
     <script src="js/adminlte.min.js"></script>
-<<<<<<< HEAD
+
 </body>
 
 </html>
-=======
 
 
 
